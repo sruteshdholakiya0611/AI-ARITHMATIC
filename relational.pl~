@@ -1,0 +1,13 @@
+re:-write('7>9'),nl,
+    7>9,nl,
+    write('7<9'),nl,
+    7<9,nl,
+    write('7>=9'),nl,
+    7>=9,nl,
+    write('7=<9'),nl,
+    7>=9,nl,
+    write('7 not equal 9'),nl,
+    7=\=9,nl,
+    write('7=9'),nl,
+    7==9,nl.
+

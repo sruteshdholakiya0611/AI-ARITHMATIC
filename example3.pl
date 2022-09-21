@@ -1,0 +1,63 @@
+male(James).
+male(Joe).
+male(Andrew).
+male(Smith).
+female(Rose).
+female(Kitty).
+female(Mary).
+female(Emma).
+
+parent(Andrew,James).
+parent(Andrew,Smith).
+parent(Andrew,Emma).
+parent(James,Joe).
+parent(James,Kitty).
+parent(Mary,James).
+parent(Rose,Joe).
+parent(Rose,Kitty).
+
+married(James,Rose).
+married(Andrew,Mary).
+
+father(X,Y):-
+    parent(X,Y),male(X).
+mother(X,Y):-
+    parent(X,Y),female(X).
+
+brother(X,Y):-
+    parent(Z,X), parent(Z,Y), male(X), X\==Y.
+sister(X,Y):-
+    parent(Z,X), parent(Z,Y), female(X), X\==Y.
+
+grandfather(Z,X):-
+    parent(Y,X), male(Y), parent(Z,Y), male(Z).
+grandmother(Z,X):-
+    parent(Y,X), male(Y), parent(Z,Y), female(Z).
+
+grandson(X,Z):-
+    parent(Y,X), parent(Z,Y), male(Y), male(X).
+granddaughter(X,Z):-
+    parent(Y,X), parent(Z,Y), male(Y), female(X).
+
+son(X,Y):-
+    parent(Y,X), male(X).
+daughter(X,Y):-
+    parent(Y,X), female(X).
+
+husband(X,Y):-
+    married(X,Y), male(X).
+wife(X,Y):-
+    married(X,Y), female(X).
+
+uncle(X,Y):-
+    brother(X,Z),parent(Z,Y),male(X).
+aunt(X,Y):-
+    sister(X,Z),parent(Z,Y),female(X).
+
+
+
+
+
+
+
+
